@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import CollegeCard from "../CollegeCard/CollegeCard";
-import MetaData from "../MetaDeta/MetaDeta";
+// import MetaData from "../MetaDeta/MetaDeta";
 import RankCard from "../RankCard/RankCard";
 import ResultTable from "../ResultTable/ResultTable";
 
@@ -45,12 +45,12 @@ function ResultMainSection() {
           variants={animationLeft} // Slide from Left
         >
           <RankCard rank={data?.predicted_rank} category={body?.category} />
-          <MetaData
+          {/* <MetaData
             percentile={percentile}
             homestate={body?.state}
             gender={body?.gender}
             category={body?.category}
-          />
+          /> */}
         </motion.div>
 
         <motion.div
