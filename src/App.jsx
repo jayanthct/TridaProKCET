@@ -25,8 +25,8 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/home" element={<HomeMainSection />} />
-          <Route index element={<ResultMainSection />} />
+          <Route index element={<HomeMainSection />} />
+          <Route path="/predict" element={<ResultMainSection />} />
           <Route path="*" element={<PageNotFound404></PageNotFound404>} />
         </Route>
       </Routes>

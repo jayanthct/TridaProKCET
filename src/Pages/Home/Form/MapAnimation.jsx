@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-
+import arrow from "./Assets/arrow.svg"
 // Center image
-import apImage from "./assets/karnataka.svg";
+import apImage from "./Assets/karnataka.svg";
 
 // University logos (replace with your actual images)
-import uni1 from "./assets/NITT.png";
-import uni2 from "./assets/NITK.png";
-import uni3 from "./assets/NITW.png";
-import uni4 from "./assets/NITJ.png";
-import uni5 from "./assets/NITS.png";
-import uni6 from "./assets/NITB.png";
-import uni7 from "./assets/NITJal.png";
-import uni8 from "./assets/VNIT.png";
+import uni1 from "./Assets/NITT.png";
+import uni2 from "./Assets/NITK.png";
+import uni3 from "./Assets/NITW.png";
+import uni4 from "./Assets/NITJ.png";
+import uni5 from "./Assets/NITS.png";
+import uni6 from "./Assets/NITB.png";
+import uni7 from "./Assets/NITJal.png";
+import uni8 from "./Assets/VNIT.png";
 
 const innerLogos = [uni1, uni2, uni3, uni4];
 const outerLogos = [uni5, uni6, uni7, uni8];
@@ -116,6 +116,8 @@ const MapAnimation = () => {
           </motion.div>
         );
       })}
+
+      <img src={arrow} alt="" className="absolute arrow top-0 right-0" />
     </div>
   );
 };

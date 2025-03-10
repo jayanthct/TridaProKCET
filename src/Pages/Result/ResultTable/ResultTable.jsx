@@ -13,7 +13,7 @@ import {
   FaWrench,
   FaRobot,
   FaBolt,
-  FaGraduationCap
+  FaGraduationCap,
 } from "react-icons/fa";
 
 const iconMap = {
@@ -47,7 +47,7 @@ const iconMap = {
   "Mechatronics Engineering": <FaRobot />,
   "Artificial Intelligence and Machine Learning": <FaLaptopCode />,
   "Aeronautical Engineering": <FaRocket />,
-  "Architecture": <FaBuilding />,
+  Architecture: <FaBuilding />,
   "Automotive Engineering": <FaCog />,
   "Automobile Engineering": <FaCog />,
   "Petroleum Engineering": <FaGlobe />,
@@ -57,10 +57,72 @@ const iconMap = {
   "Computer Science and System Engineering": <FaLaptopCode />,
   "Telecommunication Engineering": <FaMicrochip />,
   "Textile Technology": <FaBuilding />,
-  "Planning": <FaBuilding />,
+  Planning: <FaBuilding />,
   "Computer and Communication Engineering": <FaLaptopCode />,
 };
-const ResultTable = ({ eligible_colleges =[]}) => {
+
+const branches = [
+  { value: "AD", label: "Artificial Intelligence And Data Science" },
+  { value: "AE", label: "Aeronautical Engineering" },
+  { value: "AI", label: "Artificial Intelligence and Machine Learning" },
+  { value: "AR", label: "Architecture" },
+  { value: "AT", label: "Automotive Engineering" },
+  { value: "AU", label: "Automobile Engineering" },
+  { value: "BC", label: "BTech Computer Technology" },
+  { value: "BD", label: "Computer Science Engineering-Big Data" },
+  { value: "BE", label: "Bio-Electronics Engineering" },
+  { value: "BI", label: "BTech Information Technology" },
+  { value: "BM", label: "Bio Medical Engineering" },
+  { value: "BT", label: "Bio Technology" },
+  { value: "CB", label: "Computer Science and Business Systems" },
+  { value: "CC", label: "Computer and Communication Engineering" },
+  { value: "CE", label: "Civil Engineering" },
+  { value: "CH", label: "Chemical Engineering" },
+  { value: "CI", label: "Computer Science and Information Technology" },
+  { value: "CO", label: "Computer Engineering" },
+  { value: "CR", label: "Ceramics and Cement Technology" },
+  { value: "CS", label: "Computer Science And Engineering" },
+  { value: "CT", label: "Construction Technology and Management" },
+  { value: "CY", label: "Computer Science Engineering-Cyber Security" },
+  { value: "DS", label: "Computer Science Engineering-Data Sciences" },
+  { value: "EC", label: "Electronics and Communication Engineering" },
+  { value: "EE", label: "Electrical And Electronics Engineering" },
+  { value: "EI", label: "Electronics and Instrumentation Engineering" },
+  { value: "EN", label: "Environmental Engineering" },
+  { value: "ER", label: "Electrical and Computer Engineering" },
+  { value: "ES", label: "Electronics and Computer" },
+  { value: "ET", label: "Electronics and Telecommunication" },
+  {
+    value: "IC",
+    label: "Internet of Things, Cyber Security(Block Chain Tech)",
+  },
+  { value: "IE", label: "Information Science and Engineering" },
+  { value: "II", label: "Elec. and Communication- Industrial Integrated" },
+  { value: "IM", label: "Industrial Engineering Management" },
+  { value: "IO", label: "Computer Science Engineering-Internet of Things" },
+  { value: "IP", label: "Industrial and Production Engineering" },
+  { value: "IT", label: "Instrumentation Technology" },
+  { value: "LC", label: "Computer Science Engineering-Block Chain" },
+  { value: "MC", label: "Mathematics and Computing" },
+  { value: "MD", label: "Medical Electronics" },
+  { value: "ME", label: "Mechanical Engineering" },
+  { value: "MM", label: "Mechanical and Smart Manufacturing" },
+  { value: "MR", label: "Marine Engineering" },
+  { value: "MT", label: "Mechatronics Engineering" },
+  { value: "OP", label: "Computer Science Engineering-Dev Ops" },
+  { value: "PL", label: "Petroleum Engineering" },
+  { value: "PT", label: "Polymer Science and Technology" },
+  { value: "RO", label: "Automation and Robotics Engineering" },
+  { value: "SE", label: "Aero Space Engineering" },
+  { value: "SS", label: "Computer Science and System Engineering" },
+  { value: "ST", label: "Silk Technology" },
+  { value: "TC", label: "Telecommunication Engineering" },
+  { value: "TX", label: "Textile Technology" },
+  { value: "UP", label: "Planning" },
+  { value: "UR", label: "Planning" },
+];
+
+const ResultTable = ({ eligible_colleges = [] }) => {
   const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -79,7 +141,7 @@ const ResultTable = ({ eligible_colleges =[]}) => {
       {eligible_colleges.length === 0 ? (
         <TableNotFound />
       ) : (
-        <div className="overflow-x-auto px-[16px] md:px-[10%] py-[2%] w-full">
+        <div className="overflow-x-auto px-[16px] md:px-[4%] py-[2%] w-full">
           <div className="heading mb-6 font-medium text-[21px]">
             As per the data obtained from &nbsp;
             <span className="font-bold text-secondary text-[24px]">
@@ -88,20 +150,17 @@ const ResultTable = ({ eligible_colleges =[]}) => {
             ,&nbsp; you might get:
           </div>
           <table className="w-full border-collapse">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="p-4 text-left font-semibold">#</th>
-                <th className="p-4 text-left font-semibold">College</th>
-                <th className="p-4 text-left font-semibold">CET Code</th>
-                <th className="p-4 text-left font-semibold">Branch</th>
-              </tr>
-            </thead>
             <tbody>
               {displayedColleges.map((college, index) => {
                 const branch = college["Branch"];
+                const displaybranch = branches.filter((e) => {
+                  return e.value == branch;
+                });
                 const collegeName = college["College"];
                 const cetCode = college["CETCode"];
-                const icon = iconMap[branch] || <FaGraduationCap />;
+                const icon = iconMap[displaybranch[0].label] || (
+                  <FaGraduationCap />
+                );
 
                 return (
                   <tr
@@ -122,7 +181,7 @@ const ResultTable = ({ eligible_colleges =[]}) => {
                       <span className="text-secondary sm:flex hidden text-xl w-[52px] h-[52px] rounded-full bg-[#901D7822] justify-center items-center">
                         {icon}
                       </span>
-                      {branch}
+                      {displaybranch[0].label}
                     </td>
                   </tr>
                 );

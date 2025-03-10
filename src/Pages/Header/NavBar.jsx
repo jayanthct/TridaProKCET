@@ -21,9 +21,9 @@ function NavBar() {
         animate="visible"
         variants={slideDown} // Slide down animation
       >
-        <div className="logo w-fit -ml-5 md:-ml-1 scale-[0.8] md:scale-[1]">
+        <a className="logo w-fit -ml-5 md:-ml-1 scale-[0.8] md:scale-[1]" href="/">
           <img src={logo} alt="" className="logo" />
-        </div>
+        </a>
 
         <div className="content flex flex-col justify-end items-end relative gap-2 md:scale-[1] scale-[0.8]">
           <span className="box absolute w-[120px] h-[42px] md:w-[160px] md:h-[60px] bg-secondary bottom-[4px] right-0 -z-10"></span>

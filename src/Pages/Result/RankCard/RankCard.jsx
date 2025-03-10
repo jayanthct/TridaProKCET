@@ -1,5 +1,5 @@
 import React from "react";
-import design from "./Assets/design.svg";
+import design from "./Assets/design.png";
 import CountUp from './CountUp'
 
 function RankCard({rank,category}) {
@@ -12,12 +12,12 @@ function RankCard({rank,category}) {
             "-17px 89px 25px 0px rgba(255, 78, 89, 0.00), -11px 57px 23px 0px rgba(255, 78, 89, 0.01), -6px 32px 20px 0px rgba(255, 78, 89, 0.02), -3px 14px 15px 0px rgba(255, 78, 89, 0.03), -1px 4px 8px 0px rgba(255, 78, 89, 0.04)",
         }}
       >
-        <img src={design} alt="" className="absolute top-0 right-0" />
         <img
           src={design}
           alt=""
-          className="absolute bottom-0 left-0 rotate-180"
+          className="absolute bottom-[-20px] left-[-12px]"
         />
+        <img src={design} alt="" className="absolute  top-[-20px] right-[-12px] rotate-180" />
 
         <div className="text flex flex-col justify-center items-center">
           <h1 className="heading font-bold text-secondary md:text-[32px] text-[21px]">
