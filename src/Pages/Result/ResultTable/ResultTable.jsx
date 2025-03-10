@@ -13,6 +13,7 @@ import {
   FaWrench,
   FaRobot,
   FaBolt,
+  FaGraduationCap
 } from "react-icons/fa";
 
 const iconMap = {
@@ -59,7 +60,7 @@ const iconMap = {
   "Planning": <FaBuilding />,
   "Computer and Communication Engineering": <FaLaptopCode />,
 };
-const ResultTable = ({ eligible_colleges = [] }) => {
+const ResultTable = ({ eligible_colleges =[]}) => {
   const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
 

@@ -3,7 +3,7 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
 export default function PaginationRounded({ count, page, onPageChange }) {
-  const primaryColor = '#FF4E59'; // Red
+  const primaryColor = '#901D78'; // Red
   const secondaryColor = 'white'; // White
   const normalItemColor = '#161B2D'; // Grey for normal items and chevron buttons
 

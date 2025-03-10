@@ -59,7 +59,7 @@ const UserForm = () => {
       if (res.status === 200 || res.status === 201) {
         setTimeout(() => {
           setLoading(false);
-          navigate("/result", { state: { data: res.data, body } }); // Pass data to result page
+          navigate("/predict", { state: { data: res.data, body } }); // Pass data to result page
         }, 2500);
       } else {
         toast.error("Unexpected Error, Please Try Again!", {
