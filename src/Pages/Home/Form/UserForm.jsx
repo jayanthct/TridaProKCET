@@ -20,7 +20,7 @@ const UserForm = () => {
     chemmarks: "",
     mathmarks: "",
     pwd: "NO",
-    category: "GEN",
+    category: { GM: "GM" },
     branch: [],
   });
 
@@ -34,6 +34,7 @@ const UserForm = () => {
 
   const [loading, setLoading] = useState(false);
   const handleSubmit = async (e) => {
+    console.log(formData);
     e.preventDefault(); // Prevent default form behavior
     setLoading(true); // Show loader
 
@@ -42,11 +43,12 @@ const UserForm = () => {
         marks: formData.marks ? parseFloat(formData.marks) : undefined,
         pmarks: formData.phymarks ? parseFloat(formData.phymarks) : undefined,
         cmarks: formData.chemmarks ? parseFloat(formData.chemmarks) : undefined,
-        mmarks: formData.mathmarks ? parseFloat(formDatamath.marks) : undefined,
+        mmarks: formData.mathmarks ? parseFloat(formData.mathmarks) : undefined,
         pwd: formData.pwd,
-        category: formData.category,
-        branch:formData.branch
+        category: formData.category.value,
+        branch: formData.branch.map((e)=>{return e.value}),
       };
+      console.log(body);
       const url = "http://127.0.0.1:5000/predict";
       const res = await axios.post(url, body, {
         headers: {
@@ -152,7 +154,7 @@ const UserForm = () => {
                   chemmarks: "",
                   mathmarks: "",
                   pwd: "NO",
-                  category: "GEN",
+                  category: { GM: "GM" },
                   branch: [],
                 })
               }

@@ -49,7 +49,7 @@ function QuickChangeButtons({ formData, handleChange }) {
             <input
               required
               type="number"
-              name={`marks_${subject.toLowerCase()}`}
+              name={`${subject.toLowerCase()}marks`}
               value={formData[`${subject.toLowerCase()}marks`] || ""}
               onChange={handleChange}
               min={0}
